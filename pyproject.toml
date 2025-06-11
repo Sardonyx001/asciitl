@@ -1,7 +1,7 @@
 [project]
 name = "asciitl"
 version = "0.1.0"
-description = "Add your description here"
+description = "simple stremlit app to generate ascii timeline diagrams"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
