@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "simple stremlit app to generate ascii timeline diagrams"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "streamlit>=1.45.1",
+dependencies = ["streamlit>=1.45.1"]
+
+[dependency-groups]
+dev = [
+    "watchdog>=6.0.0",
 ]
