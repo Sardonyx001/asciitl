@@ -6,13 +6,25 @@ from typing import List
 
 @dataclass
 class Activity:
+    """Data class to represent an activity with start time, end time, and name."""
+
     start: str
     end: str
     name: str
 
 
 def parse_activities(text: str) -> List[Activity]:
-    # Parse lines like '09:00 - 09:15 Activity'
+    """Parse the input text to extract activities in the format 'HH:MM - HH:MM Activity'.
+    Args:
+        text (str): Input text containing activities.
+    Returns:
+        List[Activity]: A list of Activity objects parsed from the input text.
+    Example:
+        >>> text = "09:00 - 09:15 Morning Routine\\n09:15 - 10:00 Breakfast"
+        >>> parse_activities(text)
+        [Activity(start='09:00', end='09:15', name='Morning Routine'),
+         Activity(start='09:15', end='10:00', name='Breakfast')]
+    """
     pattern = r"(\d{2}:\d{2})\s*-\s*(\d{2}:\d{2})\s+(.*)"
     activities = []
     for line in text.splitlines():
@@ -24,7 +36,17 @@ def parse_activities(text: str) -> List[Activity]:
 
 
 def get_time_points(activities: List[Activity]) -> List[str]:
-    # Collect all unique time points
+    """Collect all unique time points from the activities.
+    Args:
+        activities (List[Activity]): List of Activity objects.
+    Returns:
+        List[str]: A sorted list of unique time points (start and end times).
+    Example:
+        >>> activities = [Activity("09:00", "09:15", "Morning Routine"),
+        ...              Activity("09:15", "10:00", "Breakfast")]
+        >>> get_time_points(activities)
+        ['09:00', '09:15', '10:00']
+    """
     points = set()
     for act in activities:
         points.add(act.start)
