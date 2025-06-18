@@ -25,6 +25,12 @@ def parse_activities(text: str) -> List[Activity]:
         [Activity(start='09:00', end='09:15', name='Morning Routine'),
          Activity(start='09:15', end='10:00', name='Breakfast')]
     """
+    # (\d{2}:\d{2}) matches the start time in HH:MM format
+    # \s*-\s* matches the hyphen and optional whitespace
+    # (\d{2}:\d{2}) matches the end time in HH:MM format
+    # \s+ matches one or more whitespace characters
+    # (.*) matches the activity name (any characters after the time)
+    # The regex does not enforce any specific format for the activity name, allowing for a wide range of descriptions.
     pattern = r"(\d{2}:\d{2})\s*-\s*(\d{2}:\d{2})\s+(.*)"
     activities = []
     for line in text.splitlines():
