@@ -75,7 +75,7 @@ def build_ascii_table(activities: List[Activity], time_points: List[str]) -> str
 
 
 def main():
-    st.title("asciitle - ASCII Timeline Table Generator")
+    st.title("asciitl - ASCII Timeline Table Generator")
     st.markdown(
         "This tool generates an ASCII table from your daily activity timeline. "
         "Input your activities in the format `HH:MM - HH:MM Activity`."
